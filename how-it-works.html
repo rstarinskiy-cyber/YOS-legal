@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How YOSS Score, YOSS Core balances, Pattern observations, data, and Free vs Pro work on iPhone.">
+  <title>How YOSS works</title>
+  <style>
+
+    :root {
+      --bg: #f5f5f8;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #636366;
+      --accent: #178072;
+      --brand: #1aae9f;
+      --rule: rgba(17, 17, 17, 0.08);
+      --pad: 24px;
+      --radius: 16px;
+      --measure: 40rem;
+      --nav-gap: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1514;
+        --surface: #16201e;
+        --text: #f5f7f6;
+        --muted: #a8b0ae;
+        --accent: #2ed3be;
+        --brand: #1aae9f;
+        --rule: rgba(245, 247, 246, 0.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 32px 16px 48px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.47;
+      letter-spacing: -0.01em;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .site-nav {
+      max-width: var(--measure);
+      margin: 0 auto 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--nav-gap);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .site-nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .site-nav a:hover { text-decoration: underline; }
+    .site-nav a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    article, main {
+      max-width: var(--measure);
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: var(--pad);
+      border: 1px solid var(--rule);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    h2 {
+      margin: 32px 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+    .meta {
+      margin: 0 0 24px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .lede {
+      margin: 0 0 16px;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--muted);
+    }
+    p { margin: 0 0 12px; }
+    p, li {
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--text);
+    }
+    ul {
+      margin: 0 0 12px;
+      padding-left: 24px;
+    }
+    li { margin: 0 0 8px; }
+    li:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; }
+    a {
+      color: var(--accent);
+      text-underline-offset: 2px;
+    }
+    a:hover { opacity: 0.85; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 16px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .lang a { color: var(--accent); text-decoration: none; }
+    .lang a:hover { text-decoration: underline; }
+    .lang .active { font-weight: 600; color: var(--text); }
+    footer {
+      max-width: var(--measure);
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    @media (max-width: 480px) {
+      body { padding: 16px 12px 32px; }
+      article, main { padding: 16px; border-radius: 12px; }
+      h1 { font-size: 24px; }
+      h2 { font-size: 17px; margin-top: 24px; }
+      p, li { font-size: 16px; }
+      th, td { padding: 8px; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site"><a href="index.html">Home</a><a href="how-it-works.html" aria-current="page">How it works</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  <article>
+    <nav class="lang" aria-label="Language"><span class="active">English</span><a href="ru/how-it-works.html">Русский</a></nav>
+    <h1>How YOSS works</h1>
+    <p class="meta">Last updated: August 14, 2026</p>
+
+    <h2>One number, one reason, one action</h2>
+    <p>YOSS shows your daily readiness as one YOSS Score, names the balance that limits it most right now, and offers one next action. The rest of the app exists to keep those three honest. YOSS does not diagnose, promise an outcome, or require a watch, ring, or band.</p>
+    <h2>Scale</h2>
+    <table>
+    <thead><tr><th>Range</th><th>Meaning</th></tr></thead>
+    <tbody>
+    <tr><td>Below 50</td><td>limited capacity</td></tr>
+    <tr><td>50–69</td><td>moderate capacity</td></tr>
+    <tr><td>70–85</td><td>strong capacity</td></tr>
+    <tr><td>86+</td><td>peak capacity</td></tr>
+    </tbody>
+    </table>
+    <p>Most strong days fall between 70 and 85.</p>
+    <h2>Four balances</h2>
+    <p>YOSS Score combines four YOSS Core balances:</p>
+    <table>
+    <thead><tr><th>Balance</th><th>Weight</th></tr></thead>
+    <tbody>
+    <tr><td>Recovery</td><td>30%</td></tr>
+    <tr><td>Water</td><td>25%</td></tr>
+    <tr><td>Energy</td><td>25%</td></tr>
+    <tr><td>Calm</td><td>20%</td></tr>
+    </tbody>
+    </table>
+    <p>Higher Calm is better — it is load resilience, not a stress level.</p>
+    <h2>Your usual level</h2>
+    <p>After about two weeks, YOSS can show your usual level — a personal reference for whether today’s score is high or low for you. It is a description, not a goal.</p>
+    <h2>What YOSS notices</h2>
+    <p>YOSS Pattern observations move through four stages: Testing, Forming, Confirmed, and Not supported. <strong>Not supported observations are shown too</strong> — the app does not hide checks that did not hold.</p>
+    <h2>Data</h2>
+    <ul>
+    <li>YOSS runs on iPhone; a watch, ring, or band is not required.</li>
+    <li>With permission, YOSS may read six Apple Health types on your device only: step count, heart rate variability, resting heart rate, body mass, sleep analysis, and date of birth. YOSS does not write to Apple Health.</li>
+    <li>Your records stay on your device. There is no account to sign into.</li>
+    <li>When you change phones, history does not move by itself — export your data first, then import it on the new device.</li>
+    </ul>
+    <h2>Free and Pro</h2>
+    <p><strong>Included free:</strong></p>
+    <ul>
+    <li>YOSS Score, YOSS State, and one action each day on YOSS Today</li>
+    <li>Four YOSS Core balances</li>
+    <li>Your usual level</li>
+    <li>The observation ladder in YOSS Pattern</li>
+    <li>Logging the day and reviewing history</li>
+    <li>Export my data</li>
+    </ul>
+    <p><strong>Pro adds:</strong></p>
+    <ul>
+    <li>6–24h YOSS Score outlook</li>
+    <li>Weekly patterns and consistency</li>
+    <li>YOSS Life Book — curated story of memorable life shifts</li>
+    <li>YOSS Choice actions for every YOSS Core pillar</li>
+    <li>Personal patterns on YOSS Core</li>
+    <li>Optional schedule auto-log for meal, workout, and sleep (off by default)</li>
+    </ul>
+    <p>Prices are regional and shown in the <a href="https://apps.apple.com/">App Store</a>.</p>
+  </article>
+  <footer><a href="index.html">YOSS</a></footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Как устроены YOSS Score, балансы YOSS Core, наблюдения Pattern, данные и Free / Pro на iPhone.">
+  <title>Как работает YOSS</title>
+  <style>
+
+    :root {
+      --bg: #f5f5f8;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #636366;
+      --accent: #178072;
+      --brand: #1aae9f;
+      --rule: rgba(17, 17, 17, 0.08);
+      --pad: 24px;
+      --radius: 16px;
+      --measure: 40rem;
+      --nav-gap: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1514;
+        --surface: #16201e;
+        --text: #f5f7f6;
+        --muted: #a8b0ae;
+        --accent: #2ed3be;
+        --brand: #1aae9f;
+        --rule: rgba(245, 247, 246, 0.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 32px 16px 48px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.47;
+      letter-spacing: -0.01em;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .site-nav {
+      max-width: var(--measure);
+      margin: 0 auto 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--nav-gap);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .site-nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .site-nav a:hover { text-decoration: underline; }
+    .site-nav a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    article, main {
+      max-width: var(--measure);
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: var(--pad);
+      border: 1px solid var(--rule);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    h2 {
+      margin: 32px 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+    .meta {
+      margin: 0 0 24px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .lede {
+      margin: 0 0 16px;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--muted);
+    }
+    p { margin: 0 0 12px; }
+    p, li {
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--text);
+    }
+    ul {
+      margin: 0 0 12px;
+      padding-left: 24px;
+    }
+    li { margin: 0 0 8px; }
+    li:last-child { margin-bottom: 0; }
+    strong { font-weight: 600; }
+    a {
+      color: var(--accent);
+      text-underline-offset: 2px;
+    }
+    a:hover { opacity: 0.85; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 16px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .lang a { color: var(--accent); text-decoration: none; }
+    .lang a:hover { text-decoration: underline; }
+    .lang .active { font-weight: 600; color: var(--text); }
+    footer {
+      max-width: var(--measure);
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    @media (max-width: 480px) {
+      body { padding: 16px 12px 32px; }
+      article, main { padding: 16px; border-radius: 12px; }
+      h1 { font-size: 24px; }
+      h2 { font-size: 17px; margin-top: 24px; }
+      p, li { font-size: 16px; }
+      th, td { padding: 8px; }
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site"><a href="index.html">Главная</a><a href="how-it-works.html" aria-current="page">Как работает</a><a href="support.html">Поддержка</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия</a></nav>
+  <article>
+    <nav class="lang" aria-label="Язык"><span class="active">Русский</span><a href="../how-it-works.html">English</a></nav>
+    <h1>Как работает YOSS</h1>
+    <p class="meta">Обновлено: 14 августа 2026</p>
+
+    <h2>Одно число, одна причина, одно действие</h2>
+    <p>YOSS показывает дневную готовность одним YOSS Score, называет баланс, который сильнее всего ограничивает его сейчас, и предлагает одно следующее действие. Всё остальное в приложении существует, чтобы эти три вещи были честными. YOSS не ставит диагнозов, не обещает результата и не требует часов, кольца или браслета.</p>
+    <h2>Шкала</h2>
+    <table>
+    <thead><tr><th>Диапазон</th><th>Значение</th></tr></thead>
+    <tbody>
+    <tr><td>Ниже 50</td><td>ограниченная готовность</td></tr>
+    <tr><td>50–69</td><td>умеренная готовность</td></tr>
+    <tr><td>70–85</td><td>высокая готовность</td></tr>
+    <tr><td>86+</td><td>пиковая готовность</td></tr>
+    </tbody>
+    </table>
+    <p>Большинство сильных дней — между 70 и 85.</p>
+    <h2>Четыре баланса</h2>
+    <p>YOSS Score собирается из четырёх балансов YOSS Core:</p>
+    <table>
+    <thead><tr><th>Баланс</th><th>Вес</th></tr></thead>
+    <tbody>
+    <tr><td>Восстановление</td><td>30%</td></tr>
+    <tr><td>Вода</td><td>25%</td></tr>
+    <tr><td>Энергия</td><td>25%</td></tr>
+    <tr><td>Спокойствие</td><td>20%</td></tr>
+    </tbody>
+    </table>
+    <p>Чем выше Спокойствие — тем лучше: это устойчивость к нагрузке, а не уровень стресса.</p>
+    <h2>Твой обычный уровень</h2>
+    <p>Примерно через две недели YOSS может показать твой обычный уровень — личную опору, чтобы понять, много это для тебя сегодня или мало. Это описание, а не цель.</p>
+    <h2>Что YOSS замечает</h2>
+    <p>Наблюдения YOSS Pattern проходят четыре стадии: Проверяем, Формируется, Подтверждено и Не подтверждено. <strong>Неподтверждённые наблюдения тоже показываются</strong> — приложение не скрывает проверки, которые не удержались.</p>
+    <h2>Данные</h2>
+    <ul>
+    <li>YOSS работает на iPhone; часы, кольцо или браслет не нужны.</li>
+    <li>С твоего разрешения YOSS может читать на устройстве шесть типов Apple Health: шаги, вариабельность сердечного ритма, пульс в покое, масса тела, анализ сна и дата рождения. В Apple Health YOSS ничего не пишет.</li>
+    <li>Записи остаются на твоём устройстве. Аккаунта для входа нет.</li>
+    <li>При смене телефона история сама не переезжает — сначала экспортируй данные, затем загрузи их на новом устройстве.</li>
+    </ul>
+    <h2>Free и Pro</h2>
+    <p><strong>Всегда бесплатно:</strong></p>
+    <ul>
+    <li>YOSS Score, YOSS State и одно действие каждый день на YOSS Today</li>
+    <li>Четыре баланса YOSS Core</li>
+    <li>Твой обычный уровень</li>
+    <li>Лестница наблюдений в YOSS Pattern</li>
+    <li>Запись дня и просмотр истории</li>
+    <li>Экспортировать мои данные</li>
+    </ul>
+    <p><strong>Pro добавляет:</strong></p>
+    <ul>
+    <li>Прогноз YOSS Score на 6–24 ч</li>
+    <li>Недельные закономерности и стабильность</li>
+    <li>YOSS Life Book — курируемая история заметных жизненных сдвигов</li>
+    <li>Действия YOSS Choice по каждому столпу YOSS Core</li>
+    <li>Персональные закономерности на YOSS Core</li>
+    <li>Опциональный автолог еды, тренировок и сна по расписанию (по умолчанию выкл.)</li>
+    </ul>
+    <p>Цены зависят от региона и показаны в <a href="https://apps.apple.com/">App Store</a>.</p>
+  </article>
+  <footer><a href="index.html">YOSS</a></footer>
+</body>
+</html>
