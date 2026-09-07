@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YOSS privacy policy: on-device storage, Apple Health read types, and optional aggregate summaries.">
   <title>Privacy Policy — YOSS</title>
   <style>
+
     :root {
-      --bg: #f7f7f2;
+      --bg: #f5f5f8;
       --surface: #ffffff;
       --text: #111111;
-      --muted: #6e6e73;
-      --accent: #007f00;
+      --muted: #636366;
+      --accent: #178072;
+      --brand: #1aae9f;
       --rule: rgba(17, 17, 17, 0.08);
       --pad: 24px;
       --radius: 16px;
       --measure: 40rem;
+      --nav-gap: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1514;
+        --surface: #16201e;
+        --text: #f5f7f6;
+        --muted: #a8b0ae;
+        --accent: #2ed3be;
+        --brand: #1aae9f;
+        --rule: rgba(245, 247, 246, 0.12);
+      }
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -29,6 +44,25 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+    .site-nav {
+      max-width: var(--measure);
+      margin: 0 auto 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--nav-gap);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .site-nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .site-nav a:hover { text-decoration: underline; }
+    .site-nav a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
     }
     article, main {
       max-width: var(--measure);
@@ -60,6 +94,12 @@
       line-height: 1.35;
       color: var(--muted);
     }
+    .lede {
+      margin: 0 0 16px;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--muted);
+    }
     p { margin: 0 0 12px; }
     p, li {
       font-size: 17px;
@@ -78,7 +118,28 @@
       text-underline-offset: 2px;
     }
     a:hover { opacity: 0.85; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 13px;
+    }
     .lang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin: 0 0 16px;
       font-size: 13px;
       line-height: 1.35;
@@ -86,6 +147,7 @@
     }
     .lang a { color: var(--accent); text-decoration: none; }
     .lang a:hover { text-decoration: underline; }
+    .lang .active { font-weight: 600; color: var(--text); }
     footer {
       max-width: var(--measure);
       margin: 24px auto 0;
@@ -101,47 +163,58 @@
       h1 { font-size: 24px; }
       h2 { font-size: 17px; margin-top: 24px; }
       p, li { font-size: 16px; }
+      th, td { padding: 8px; }
     }
 
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Site"><a href="index.html">Home</a><a href="how-it-works.html">How it works</a><a href="support.html">Support</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav>
   <article>
-    <p class="lang"><a href="ru/privacy.html">Русский</a></p>
+    <nav class="lang" aria-label="Language"><span class="active">English</span><a href="ru/privacy.html">Русский</a></nav>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: July 14, 2026</p>
+    <p class="meta">Effective date: September 6, 2026</p>
 
     <h2>Overview</h2>
-    <p>YOSS (“we”, “our”, “the app”) helps you understand your daily energy, water balance, and readiness through a single YOSS Score. We designed the app to keep your data on your device.</p>
-
+    <p>YOSS helps you understand your daily energy, water balance, and readiness through a single YOSS Score. We designed the app to keep your data on your device.</p>
     <h2>Data we collect</h2>
-    <p><strong>Stored on your device:</strong> life events you log (e.g. water balance, activity), YOSS Score history, and app settings (language, appearance). This data stays on your device unless you share it via the system share sheet.</p>
+    <p><strong>Stored on your device:</strong> life events you log (e.g. water balance, activity), YOSS Score history, an optional name you enter yourself, and app settings (language, appearance). This data stays on your device unless you share it via the system share sheet. If you have entered a name, it signs the state cards you choose to share — you see the card before it is sent, and clearing the name in Account removes it.</p>
     <p><strong>We do not collect (MVP):</strong> account registration, email, third-party analytics SDKs, or sale of personal data by default.</p>
-
+    <h2>Optional anonymous aggregate summaries</h2>
+    <p>With your explicit consent (off by default), YOSS may send at most four anonymous aggregate reports from the device — on day 7, 30, 90 and 180. Nothing is sent before day 7. Declining changes nothing about how YOSS works.</p>
+    <p><strong>What may be sent:</strong> Funnel and retention summaries — not a day-by-day diary; coarse device class, OS major version, locale group, and install week; your selected product goal category (energy / focus / health) as a preference declaration — not a health measurement; behavior counters, days when capabilities and patterns first appear, data-quality indicators, and product reliability counters — not score ranges or health-state shapes.</p>
+    <p><strong>What never leaves the device:</strong> Name, weight, age, or sex; raw events or Apple Health values; free text; precise location; any ID that could link two reports from this install; score-band histograms, confidence distributions, or per-pattern health attributions.</p>
+    <p>You can turn this off later in Settings → Data &amp; Privacy. Reports already sent cannot be recalled. There is no third-party analytics SDK. The controller for this policy is Roman Starinskiy, an individual developer without ИП — no LLC or sole-proprietorship entity is claimed.</p>
     <h2>Health data</h2>
-    <p>YOSS does not require Apple Health for core functionality. With your permission, YOSS may read optional Apple Health data — such as sleep analysis, step count, and related activity signals — to refine on-device readiness estimates. Health data stays on your device and is governed by Apple’s Health permissions. YOSS does not write data to Apple Health.</p>
-
+    <p>YOSS does not require Apple Health for core functionality. With your permission, YOSS may read these Apple Health types <strong>on your device only</strong>:</p>
+    <table>
+    <thead><tr><th>Type</th><th>Why YOSS reads it</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Step count</strong></td><td>Activity load for on-device readiness estimates</td></tr>
+    <tr><td><strong>Heart rate variability (SDNN)</strong></td><td>Recovery and stress context for on-device engines</td></tr>
+    <tr><td><strong>Resting heart rate</strong></td><td>Recovery context alongside sleep and activity</td></tr>
+    <tr><td><strong>Body mass</strong></td><td>Personal baseline for hydration and readiness models</td></tr>
+    <tr><td><strong>Sleep analysis</strong></td><td>Recovery and schedule context for daily state</td></tr>
+    <tr><td><strong>Date of birth</strong></td><td>Age-adjusted fluid and readiness coefficients on device</td></tr>
+    </tbody>
+    </table>
+    <p>Health data stays on your device and is governed by Apple&#x27;s Health permissions. YOSS does not write data to Apple Health (`requestAuthorization(toShare: [], read:)` — read-only).</p>
     <h2>Subscriptions</h2>
     <p>Purchases are processed by Apple through the App Store. We do not receive payment card details. Apple may provide subscription status to unlock Pro features.</p>
-
     <h2>Notifications</h2>
     <p>If enabled, local reminders are scheduled from on-device YOSS Score state. Notification content is generated on your device.</p>
-
-    <h2>Children’s privacy</h2>
+    <h2>Children&#x27;s privacy</h2>
     <p>YOSS is not directed at children under 13. We do not knowingly collect data from children.</p>
-
     <h2>Data retention</h2>
     <p>Data remains on your device until you delete the app or reset app data.</p>
-
     <h2>Your rights</h2>
     <p>Depending on your jurisdiction, you may have rights to access, correct, or delete your data. Deleting the app removes locally stored data.</p>
-
     <h2>Changes</h2>
-    <p>We may update this policy and post the revised version at this URL with an updated effective date.</p>
-
+    <p>We may update this policy and publish the revised version with an updated effective date.</p>
     <h2>Contact</h2>
-    <p><a href="support.html">Support page</a> · <a href="mailto:support@lifescore.app">support@lifescore.app</a></p>
+    <p>Controller: Roman Starinskiy (individual developer; no LLC or sole proprietorship / ИП is claimed).</p>
+    <p>Email: <a href="mailto:support@lifescore.app">support@lifescore.app</a> · <a href="support.html">Support page</a></p>
   </article>
-  <footer><a href="index.html">YOSS legal pages</a></footer>
+  <footer><a href="index.html">YOSS</a></footer>
 </body>
 </html>

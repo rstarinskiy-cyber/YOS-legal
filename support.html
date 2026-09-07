@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YOSS support contacts and help for the iOS app.">
   <title>Support — YOSS</title>
   <style>
+
     :root {
-      --bg: #f7f7f2;
+      --bg: #f5f5f8;
       --surface: #ffffff;
       --text: #111111;
-      --muted: #6e6e73;
-      --accent: #007f00;
+      --muted: #636366;
+      --accent: #178072;
+      --brand: #1aae9f;
       --rule: rgba(17, 17, 17, 0.08);
       --pad: 24px;
       --radius: 16px;
       --measure: 40rem;
+      --nav-gap: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1514;
+        --surface: #16201e;
+        --text: #f5f7f6;
+        --muted: #a8b0ae;
+        --accent: #2ed3be;
+        --brand: #1aae9f;
+        --rule: rgba(245, 247, 246, 0.12);
+      }
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
@@ -29,6 +44,25 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+    }
+    .site-nav {
+      max-width: var(--measure);
+      margin: 0 auto 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--nav-gap);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .site-nav a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .site-nav a:hover { text-decoration: underline; }
+    .site-nav a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
     }
     article, main {
       max-width: var(--measure);
@@ -60,6 +94,12 @@
       line-height: 1.35;
       color: var(--muted);
     }
+    .lede {
+      margin: 0 0 16px;
+      font-size: 17px;
+      line-height: 1.47;
+      color: var(--muted);
+    }
     p { margin: 0 0 12px; }
     p, li {
       font-size: 17px;
@@ -78,7 +118,28 @@
       text-underline-offset: 2px;
     }
     a:hover { opacity: 0.85; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 13px;
+    }
     .lang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin: 0 0 16px;
       font-size: 13px;
       line-height: 1.35;
@@ -86,6 +147,7 @@
     }
     .lang a { color: var(--accent); text-decoration: none; }
     .lang a:hover { text-decoration: underline; }
+    .lang .active { font-weight: 600; color: var(--text); }
     footer {
       max-width: var(--measure);
       margin: 24px auto 0;
@@ -101,42 +163,43 @@
       h1 { font-size: 24px; }
       h2 { font-size: 17px; margin-top: 24px; }
       p, li { font-size: 16px; }
+      th, td { padding: 8px; }
     }
 
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Site"><a href="index.html">Home</a><a href="how-it-works.html">How it works</a><a href="support.html" aria-current="page">Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   <article>
-    <p class="lang"><a href="ru/support.html">Русский</a></p>
+    <nav class="lang" aria-label="Language"><span class="active">English</span><a href="ru/support.html">Русский</a></nav>
     <h1>YOSS Support</h1>
-    <p class="meta">Last updated: July 24, 2026</p>
+    <p class="meta">Last updated: August 18, 2026</p>
 
     <p>YOSS helps you understand daily energy, water balance, and readiness through one YOSS Score and one clear action at a time.</p>
-
     <h2>Getting started</h2>
     <ul>
-      <li>Complete the short intro, then open Today.</li>
-      <li>Use the main action on the YOSS Score card to log and update your score.</li>
-      <li>Swipe between Today cards for YOSS Core, context, and actions.</li>
+    <li>Complete the short intro, then open Today.</li>
+    <li>Use the main action on the YOSS Score card to log and update your score.</li>
+    <li>Swipe between Today cards for YOSS Core, context, and actions.</li>
     </ul>
-
     <h2>Subscriptions</h2>
     <p>YOSS Pro unlocks full prediction, weekly patterns, YOSS Life Book, and related Pro capabilities. Purchases and restores are handled by Apple.</p>
     <ul>
-      <li>Restore: Settings → What’s in Pro → <strong>Restore purchases</strong>, or open the paywall and tap <strong>Restore Purchases</strong>.</li>
-      <li>Manage or cancel: Settings → What’s in Pro → <strong>Manage Subscription</strong>, or iOS Settings → Apple ID → Subscriptions.</li>
+    <li>Restore: Settings → What’s in Pro → <strong>Restore purchases</strong>, or open the paywall and tap <strong>Restore Purchases</strong>.</li>
+    <li>Manage or cancel: Settings → What’s in Pro → <strong>Manage Subscription</strong>, or iOS Settings → Apple ID → Subscriptions.</li>
     </ul>
-
     <h2>Language &amp; appearance</h2>
     <p>Settings → Language (tap Apply after choosing). Settings → Appearance for light, dark, or system theme.</p>
-
     <h2>Data &amp; privacy</h2>
-    <p>Your events and score history stay on your device. See our <a href="privacy.html">Privacy Policy</a>.</p>
-
+    <p>Your events and score history stay on your device. See Privacy Policy in Settings.</p>
+    <h2>Apple Watch</h2>
+    <p>Apple Watch is not required. YOSS works on the data available on your iPhone.</p>
+    <h2>Changing phones</h2>
+    <p>When you change phones, history does not move by itself — export your data first, then import it on the new device.</p>
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@lifescore.app">support@lifescore.app</a></p>
-    <p>For App Store billing issues, contact <a href="https://support.apple.com/billing">Apple Support</a>.</p>
+    <p>Email: <a href="mailto:support@lifescore.app">support@lifescore.app</a> · <a href="support.html">Support page</a></p>
+    <p>For App Store billing issues, contact Apple Support.</p>
   </article>
-  <footer><a href="index.html">YOSS legal pages</a></footer>
+  <footer><a href="index.html">YOSS</a></footer>
 </body>
 </html>

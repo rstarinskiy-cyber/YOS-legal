@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rstarinskiy-cyber.github.io/YOS-legal/sitemap.xml
